@@ -1,7 +1,7 @@
 # Use JDK 21 image as the base
 FROM eclipse-temurin:21-jdk
 
-LABEL author="RAHUL NATH"
+LABEL author="RAHUL NATH1"
 
 # Set working directory inside the container
 WORKDIR /app
