@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            height: 100vh;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            height: 100%;
+            padding: 30px 20px;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+        }
+
+        .sidebar h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            display: block;
+            margin: 15px 0;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .welcome {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.15);
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            margin-top: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .logout {
+            margin-top: 40px;
+            display: inline-block;
+            padding: 12px 25px;
+            background: white;
+            color: #2575fc;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>Dashboard</h2>
+    <a href="#">Home</a>
+    <a href="#">Profile</a>
+    <a href="#">Settings</a>
+    <a href="#" class="logout" onclick="logoutUser()">Logout</a>
+</div>
+
+<div class="content">
+    <div class="welcome">Welcome, User 👋</div>
+
+    <div class="card">
+        <h3>Your Account Info</h3>
+        <p>Email: user@example.com</p>
+        <p>Status: Active</p>
+    </div>
+</div>
+
+<script>
+    function logoutUser() {
+        alert("Logged out!");
+        window.location.href = "login.html";
+    }
+</script>
+
+</body>
+</html>

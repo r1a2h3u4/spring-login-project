@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9966, #ff5e62);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .form-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            width: 400px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: white;
+            color: #ff5e62;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        a { color: white; }
+        #msg {
+            margin-top: 10px;
+            font-weight: bold;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-box">
+    <h2>Create Account</h2>
+
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="registerUser()">Register</button>
+    <p id="msg"></p>
+
+    <p>Already have an account? <a href="login.html">Login</a></p>
+</div>
+
+<script>
+    async function registerUser() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const msg = document.getElementById("msg");
+
+        if (!name || !email || !password) {
+            msg.innerText = "All fields are required!";
+            return;
+        }
+
+        const response = await fetch("http://localhost:8080/save", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+        });
+
+        if (response.ok) {
+            alert("Registration successful! Redirecting to login...");
+            window.location.href = "login.html";
+        } else {
+            msg.innerText = "Registration failed!";
+        }
+    }
+</script>
+
+</body>
+</html>
