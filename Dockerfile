@@ -7,7 +7,7 @@ LABEL author="RAHUL NATH"
 WORKDIR /app
 
 # Copy the packaged jar from your local target folder
-COPY target/*.jar app.jar
+COPY target/program-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose port 8080
 EXPOSE 8080
